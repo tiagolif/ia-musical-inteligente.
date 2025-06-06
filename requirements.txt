@@ -1,0 +1,19 @@
+# Framework Web e utilitários
+Flask==3.0.3
+Werkzeug==3.0.3
+
+# Análise de Áudio
+librosa==0.11.0
+pydub==0.25.1
+
+# Processamento de Dados e Machine Learning
+numpy==1.26.4
+scikit-learn==1.5.0
+
+# Dependências do Librosa que podem precisar ser explícitas
+audioread==3.0.1
+joblib==1.4.2
+decorator==5.1.1
+msgpack==1.0.8
+numba==0.60.0
+soundfile==0.12.1

@@ -1,0 +1,14 @@
+# Arquivos de cache e compilados do Python
+__pycache__/
+*.pyc
+
+# Pasta de uploads dos usuários
+# Não queremos versionar os arquivos de áudio que os usuários enviam
+/uploads/
+
+# Arquivos de configuração do ambiente virtual (se usarmos no futuro)
+venv/
+*.env
+
+# Arquivos de configuração específicos do editor VS Code
+.vscode/

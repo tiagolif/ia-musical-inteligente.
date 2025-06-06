@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA Musical Inteligente</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://unpkg.com/wavesurfer.js@7/dist/wavesurfer.min.js"></script>
+</head>
+<body>
+    <div id="header-banner">
+        <h1>IA Musical Inteligente</h1>
+        <form id="upload-form" method="post" enctype="multipart/form-data">
+            <input type="file" name="audio_file" accept=".mp3,.wav" required>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <div id="waveform-container">
+        <div id="waveform"></div>
+        <button id="play-pause">Play/Pause</button>
+    </div>
+
+    <div id="results-container">
+        <pre id="results-output"></pre>
+    </div>
+
+    <script>
+    let wavesurfer;
+    const waveformContainer = document.getElementById('waveform-container');
+    const playPauseButton = document.getElementById('play-pause');
+    const waveformDiv = document.getElementById('waveform');
+    const resultsOutput = document.getElementById('results-output');
+    const uploadForm = document.getElementById('upload-form');
+    const audioFileInput = document.querySelector('input[name="audio_file"]');
+
+    function loadWaveform(audioUrl) {
+        if (wavesurfer) {
+            wavesurfer.destroy();
+        }
+        waveformContainer.classList.remove('loaded');
+        playPauseButton.disabled = true;
+
+        wavesurfer = WaveSurfer.create({
+            container: waveformDiv,
+            waveColor: '#a0c4ff',
+            progressColor: '#4361ee',
+            height: 80,
+            responsive: true,
+        });
+
+        wavesurfer.load(audioUrl);
+
+        wavesurfer.on('ready', function () {
+            waveformContainer.classList.add('loaded');
+            playPauseButton.disabled = false;
+        });
+
+        wavesurfer.on('error', function (err) {
+            waveformContainer.classList.remove('loaded');
+        });
+    }
+
+    uploadForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+
+        resultsOutput.textContent = 'Analisando... por favor, aguarde.';
+        if (wavesurfer) wavesurfer.empty();
+        playPauseButton.disabled = true;
+
+        fetch('/upload', {
+            method: 'POST',
+            body: formData
+        })
+        .then(resp => {
+            if (!resp.ok) {
+                return resp.json().then(errData => {
+                    throw new Error(errData.error || `Erro do servidor: ${resp.status}`);
+                }).catch(() => {
+                    throw new Error(`Erro do servidor: ${resp.status} ${resp.statusText}`);
+                });
+            }
+            return resp.json();
+        })
+        .then(data => {
+            if (data.success && data.results) {
+                resultsOutput.textContent = data.results;
+
+                if (data.filename) {
+                    const audioUrl = '/uploads/' + encodeURIComponent(data.filename);
+                    loadWaveform(audioUrl);
+                } else {
+                    resultsOutput.textContent += "\nNome do arquivo não retornado pelo servidor para exibir a forma de onda.";
+                    playPauseButton.disabled = true;
+                }
+            } else if (data.error) {
+                resultsOutput.textContent = 'Erro ao analisar: ' + data.error;
+                playPauseButton.disabled = true;
+            } else {
+                resultsOutput.textContent = 'Resposta inesperada do servidor.';
+                playPauseButton.disabled = true;
+            }
+        })
+        .catch(error => {
+            console.error('Erro no fetch:', error);
+            resultsOutput.textContent = 'Erro na comunicação com o servidor: ' + error.message;
+            playPauseButton.disabled = true;
+        });
+    });
+
+    playPauseButton.addEventListener('click', function() {
+        if (wavesurfer && wavesurfer.isReady) {
+            wavesurfer.playPause();
+        }
+    });
+    </script>
+</body>
+</html>
