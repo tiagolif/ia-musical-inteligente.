@@ -17,3 +17,6 @@ decorator==5.1.1
 msgpack==1.0.8
 numba==0.60.0
 soundfile==0.12.1
+
+# Servidor WSGI
+gunicorn==22.0.0
