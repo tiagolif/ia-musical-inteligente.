@@ -76,7 +76,8 @@ def analyze_audio_file(filepath):
         results.append(f"Volume Médio (dBFS): {volume_dbfs:.2f} dBFS")
 
         # --- Librosa: Preparar áudio para análise ---
-        y, sr = librosa.load(filepath, sr=None)
+        # Força o resample para 22050 Hz para economizar memória no servidor
+        y, sr = librosa.load(filepath, sr=22050)
         results.append(f"Áudio carregado com sucesso pelo librosa. Sample Rate: {sr} Hz")
 
         onset_frames = librosa.onset.onset_detect(y=y, sr=sr)
