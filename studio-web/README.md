@@ -36,3 +36,13 @@ Render remoto é síncrono, não fila durável. Arranjos longos geram arquivos g
 
 `node --test tests/*.test.mjs`: isolamento da troca de kick e stems idênticos, bloqueios, duração/arranjo, WAV, MIDI, validação e autenticação/origem. 14 testes automatizados aprovados. QA visual pelo navegador de teste, incluindo renderização, substituição, aprovação, criação de pistas e persistência. O fluxo com login real na nuvem ainda precisa ser validado pelo titular. WebMCP foi verificado no endereço HTTPS publicado: leitura, marco e substituição isolada de kick preservaram as outras cinco pistas. Na prévia HTTP local o registro não é disponibilizado.
 SQL de criação em database.sql. Mudanças são aditivas, sem tocar tabelas do CRM. Credenciais privilegiadas não são necessárias.
+
+## 0.3.1 — reprodução e diagnóstico
+
+O transporte principal agora reproduz o WAV renderizado em um elemento HTML audio nativo, sem precisar iniciar um AudioContext em tempo real. A sessão é pré-renderizada após o carregamento e alterações; Ouvir seção, comparação A/B e testes individuais também usam o player nativo. Pistas e arquivos de exportação continuam usando o mesmo motor.
+
+A interface só informa reprodução após o evento playing, apresenta erros de decodificação/autoplay, detecta render silencioso e mostra posição real do arquivo. A preparação não inicia reprodução automaticamente. Em navegadores que exigem gesto após a preparação, o usuário pode tocar no controle nativo visível.
+
+/api/sound-test fornece um MP3 mono de 500 Hz por 2 segundos, com suporte a Range/HEAD, independente de sessão, mixer, banco de dados e Web Audio. Esse teste não mede a saída física do aparelho: a confirmação de audibilidade ainda depende de quem está ouvindo.
+
+19 testes automatizados aprovados. QA no navegador confirma WAV carregado (readyState 4), relógio avançando e muted=false. Não foi possível testar o alto-falante do celular do usuário.
