@@ -1,0 +1,10 @@
+import fs from 'node:fs';import path from 'node:path';import {fileURLToPath} from 'node:url';
+import {reviseFirstGroove} from '../lib/revise-first-groove.js';import {render,wav} from '../public/engine.js';import {midi} from '../public/midi.js';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..');
+const source=process.argv[2]||path.join(root,'primeiro-groove/Primeiro_Groove_Projeto.json');
+const out=process.argv[3]||path.join(root,'primeiro-groove-b');fs.mkdirSync(out,{recursive:true});
+const backup=reviseFirstGroove(JSON.parse(fs.readFileSync(source)));const map=Object.fromEntries(backup.samples.map(s=>[s.id,new Float32Array(s.data)]));
+fs.writeFileSync(path.join(out,'Primeiro_Groove_B_Projeto.json'),JSON.stringify(backup));
+const audio=render(backup.project,{},map);fs.writeFileSync(path.join(out,'Primeiro_Groove_B.wav'),wav(audio));fs.writeFileSync(path.join(out,'Primeiro_Groove_B.mid'),midi(backup.project));
+fs.mkdirSync(path.join(out,'stems'),{recursive:true});for(const t of backup.project.tracks)fs.writeFileSync(path.join(out,'stems',t.id+'.wav'),wav(render(backup.project,{trackId:t.id},map)));
+const info={title:backup.project.title,duration:audio.duration,stats:audio.stats,engineVersion:backup.project.engineVersion};fs.writeFileSync(path.join(out,'Analise_B.json'),JSON.stringify(info,null,2));console.log(JSON.stringify(info));

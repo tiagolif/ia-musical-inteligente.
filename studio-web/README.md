@@ -58,3 +58,13 @@ Seções aceitam `patterns: { [trackId]: steps }`, opcional e compatível com se
 Novas sessões iniciam o baixo duas oitavas abaixo. Sessões salvas são preservadas. Clap tight e wide agora têm envelopes diferentes. Não há GPU, nova assinatura, serviço pago ou inferência generativa adicionada.
 
 Cada pista permite registrar `soundBrief` (até 500 caracteres) para orientar escolhas de timbre. É memória explícita do projeto, incluída no backup, versões e comandos do assistente; não retreina um modelo.
+
+## 0.4.1 — revisão de síntese e Primeiro Groove B
+
+Novos projetos usam `engineVersion: 2`. Projetos sem essa propriedade mantêm o motor anterior para preservar o áudio de referência. Samples gravados usam o mesmo caminho nos dois motores. A revisão sintetizada adiciona fade de ataque/release até zero, bloqueio DC, kick com sweep mais rápido, baixo aditivo com harmônicos e hi-hat de ruído em banda. Harmônicos acima do limite de Nyquist são omitidos. Não inclui sidechain, reverb, masterização ou julgamento perceptivo automatizado.
+
+Acordes do motor 2 usam `chordIntervals` explícito (até oito intervalos) e são exportados como notas no MIDI; renomear uma pista não muda sua síntese. Projetos antigos mantêm o comportamento de acordes anterior.
+
+`lib/revise-first-groove.js` corrige terças maiores do baixo e cria viradas de um compasso sem mudar a duração total. `scripts/render-groove-revision.mjs` recebe backup de entrada e diretório de saída opcionais; preserva a fonte e inclui a versão A no backup B. Os ganhos de A/B não são normalizados separadamente. A revisão continua aguardando avaliação auditiva.
+
+O botão Abrir Primeiro Groove B carrega o exemplo e os três samples locais. A sessão anterior é guardada separadamente no mesmo armazenamento do navegador e pode ser restaurada pelo botão de retorno. Em modo de armazenamento temporário esse retorno só dura enquanto a aba estiver aberta. A comparação A/B usa a posição em compassos para alinhar as seções subdivididas.
