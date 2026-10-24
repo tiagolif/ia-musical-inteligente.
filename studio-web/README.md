@@ -48,3 +48,13 @@ A interface só informa reprodução após o evento playing, apresenta erros de 
 21 testes automatizados aprovados. QA no navegador confirma WAV carregado (readyState 4), relógio avançando e muted=false. Não foi possível testar o alto-falante do celular do usuário.
 
 A inicialização tolera IndexedDB bloqueado, negado ou sem resposta: o estúdio continua em sessão temporária, com aviso para exportar backup, em vez de deixar todos os controles inativos.
+
+## 0.4.0 — samples reais e padrões por seção
+
+Sete samples acústicos VCSL CC0 são distribuídos localmente, sob demanda, com commit de origem, URL e hashes SHA-256 no catálogo. Preview não altera a sessão; Adicionar preserva o áudio no backup e no armazenamento já existente. A importação verifica integridade. São gravações acústicas, não um pack eletrônico profissional. Reconstrução: `python scripts/prepare-library.py` (Python, ffmpeg e rede); o commit realmente usado consta no catálogo.
+
+Seções aceitam `patterns: { [trackId]: steps }`, opcional e compatível com sessões schemaVersion 3 existentes. `set_section_steps` altera apenas os 16 passos da pista na seção indicada; `clear_section_steps` restaura herança do padrão base. Render, MIDI, API e WebMCP usam os mesmos eventos. Aprovação impede alterações por seção. Timbre e mixer continuam globais por pista.
+
+Novas sessões iniciam o baixo duas oitavas abaixo. Sessões salvas são preservadas. Clap tight e wide agora têm envelopes diferentes. Não há GPU, nova assinatura, serviço pago ou inferência generativa adicionada.
+
+Cada pista permite registrar `soundBrief` (até 500 caracteres) para orientar escolhas de timbre. É memória explícita do projeto, incluída no backup, versões e comandos do assistente; não retreina um modelo.

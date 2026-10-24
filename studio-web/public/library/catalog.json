@@ -1,0 +1,98 @@
+{
+  "source": "https://github.com/sgossner/VCSL",
+  "revision": "c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e",
+  "license": "CC0-1.0",
+  "assets": [
+    {
+      "id": "7c090647-c9be-52d8-95d8-02dcf4dd9f3d",
+      "name": "Bumbo acústico",
+      "type": "kick",
+      "license": "CC0-1.0",
+      "author": "Versilian Studios / VCSL contributors",
+      "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Membranophones/Struck%20Membranophones/Bass%20Drum%201/BDrumNew_hit_v3_rr1_Sum.wav",
+      "sourceSha256": "a2d8829e8b2b59e8afb12fa396b01758827059339c2a84ad066d17b36c82d1ff",
+      "sha256": "f697f75e8784031850c28c59882cdd940b4c4ef9c6fc02f010b9fb26c0d948c7",
+      "duration": 2.080952380952381,
+      "url": "/library/vcsl-bass-drum.json",
+      "processing": "Mono PCM 16-bit, 44.1 kHz; trimmed to 4 s; loudness adjusted"
+    },
+    {
+      "id": "42bf8ff7-ada6-5064-befd-bf1297e04982",
+      "name": "Palma natural 01",
+      "type": "clap",
+      "license": "CC0-1.0",
+      "author": "Versilian Studios / VCSL contributors",
+      "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Idiophones/Struck%20Idiophones/Claps/Clap_rr1.wav",
+      "sourceSha256": "4c9f3fe4a34733b9be6ed9ce5e5aad48b19c1029ae9c6dd1b96294a847539e3f",
+      "sha256": "5f96343657f5baeacfe1826bc79eab23f585fd7b8261c08e5a9e2cbcef2b0a52",
+      "duration": 0.7392063492063492,
+      "url": "/library/vcsl-clap-1.json",
+      "processing": "Mono PCM 16-bit, 44.1 kHz; trimmed to 4 s; loudness adjusted"
+    },
+    {
+      "id": "b63360cd-92f8-5ccc-9540-bcf4fcfdf929",
+      "name": "Palma natural 02",
+      "type": "clap",
+      "license": "CC0-1.0",
+      "author": "Versilian Studios / VCSL contributors",
+      "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Idiophones/Struck%20Idiophones/Claps/Clap_rr2.wav",
+      "sourceSha256": "5ae64e838b76d0658cc541f07c3c7dcfd4b08815a915f32843a8279bf2c33b9a",
+      "sha256": "ae2fc52e061f42fc4c55cf86228064d45bb3a02e9239434c2c80bbe36f0e7308",
+      "duration": 0.7130385487528345,
+      "url": "/library/vcsl-clap-2.json",
+      "processing": "Mono PCM 16-bit, 44.1 kHz; trimmed to 4 s; loudness adjusted"
+    },
+    {
+      "id": "3b049c9e-3a14-5f19-b91c-8961975a269a",
+      "name": "Hi-hat acústico fechado",
+      "type": "hat",
+      "license": "CC0-1.0",
+      "author": "Versilian Studios / VCSL contributors",
+      "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Idiophones/Struck%20Idiophones/Hi-Hat%20Cymbal/HiHat_HitC_v3_rr1_Mid.wav",
+      "sourceSha256": "b65ca06ea4f8b5209fc8d98912094be1212911f21e01bd949cc9960db049d37c",
+      "sha256": "ac018ea6987e3e6677f54800cff4d393e39691f0f027fb4e5e3d011becf81e69",
+      "duration": 1.2397278911564626,
+      "url": "/library/vcsl-hat-closed.json",
+      "processing": "Mono PCM 16-bit, 44.1 kHz; trimmed to 4 s; loudness adjusted"
+    },
+    {
+      "id": "03680743-9b3a-51dd-ae83-131d9b8c1623",
+      "name": "Hi-hat acústico aberto",
+      "type": "hat",
+      "license": "CC0-1.0",
+      "author": "Versilian Studios / VCSL contributors",
+      "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Idiophones/Struck%20Idiophones/Hi-Hat%20Cymbal/HiHat_HitO_rr1_Mid.wav",
+      "sourceSha256": "fa492ec14cc6924b43ad5fcf9e9a0f406d926998835bde2eb5847cd15ad25be7",
+      "sha256": "282a7056a56e0d1dc8372ae87a11b46b960f469fc5ee54cc72b43be80270759b",
+      "duration": 3.919206349206349,
+      "url": "/library/vcsl-hat-open.json",
+      "processing": "Mono PCM 16-bit, 44.1 kHz; trimmed to 4 s; loudness adjusted"
+    },
+    {
+      "id": "99786000-c359-5c71-ac26-ea9854537a74",
+      "name": "Shaker orgânico",
+      "type": "hat",
+      "license": "CC0-1.0",
+      "author": "Versilian Studios / VCSL contributors",
+      "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Idiophones/Struck%20Idiophones/Shaker%2C%20Large/LShaker_Hit_rr1_Mid.wav",
+      "sourceSha256": "0d3d62742a6c01ec8b8812faee945eaa2e75bfe02f83df3cc622ba7f00213ddf",
+      "sha256": "492cf02559723822e7cff2938e75d301e3bf014ac11494325bebd2f6355cdf65",
+      "duration": 1.3070975056689342,
+      "url": "/library/vcsl-shaker.json",
+      "processing": "Mono PCM 16-bit, 44.1 kHz; trimmed to 4 s; loudness adjusted"
+    },
+    {
+      "id": "d83409da-0b18-5e63-8eea-5bc45411b928",
+      "name": "Pandeirola",
+      "type": "hat",
+      "license": "CC0-1.0",
+      "author": "Versilian Studios / VCSL contributors",
+      "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Idiophones/Struck%20Idiophones/Tambourine%201/Tamb1_Hit_v2_rr1_Mid.wav",
+      "sourceSha256": "885ebf1d70f8e888f576682e4e4112b92b69649162f392c83b3379c91a09cf41",
+      "sha256": "e4d317e5c03125c36a0597628bc7145a42a9e8e77bb97c8fe6cfea9637cced00",
+      "duration": 1.661859410430839,
+      "url": "/library/vcsl-tambourine.json",
+      "processing": "Mono PCM 16-bit, 44.1 kHz; trimmed to 4 s; loudness adjusted"
+    }
+  ]
+}
