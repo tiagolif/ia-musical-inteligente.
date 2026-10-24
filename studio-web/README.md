@@ -11,7 +11,7 @@ Vercel empacota `api/*.js` como Functions Node; arquivos compartilhados em publi
 
 ## Implementado
 
-- Seis pistas sintetizadas independentes; 15 presets originais, substituição com preservação de ritmo.
+- Seis pistas iniciais, criação/remoção até 16 pistas independentes; 15 presets originais, substituição com preservação de ritmo.
 - Mixer por pista (volume/pan/filtro/decay/transposição/mute/solo), swing, BPM e tonalidade.
 - Arranjo por seções até 64 compassos e seleção de instrumentos por seção.
 - Edição de notas relativas; export MIDI multitrack (sons e efeitos não são incorporados ao MIDI).
@@ -34,5 +34,5 @@ Render remoto é síncrono, não fila durável. Arranjos longos geram arquivos g
 
 ## Testes
 
-`node --test tests/*.test.mjs`: isolamento da troca de kick e stems idênticos, bloqueios, duração/arranjo, WAV, MIDI, validação e autenticação/origem. QA visual pelo navegador de teste, incluindo renderização e persistência.
+`node --test tests/*.test.mjs`: isolamento da troca de kick e stems idênticos, bloqueios, duração/arranjo, WAV, MIDI, validação e autenticação/origem. 14 testes automatizados aprovados. QA visual pelo navegador de teste, incluindo renderização, substituição, aprovação, criação de pistas e persistência. O fluxo com login real na nuvem ainda precisa ser validado pelo titular. WebMCP não foi disponibilizado pelo navegador local de teste.
 SQL de criação em database.sql. Mudanças são aditivas, sem tocar tabelas do CRM. Credenciais privilegiadas não são necessárias.
