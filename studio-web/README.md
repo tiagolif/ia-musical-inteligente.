@@ -45,4 +45,6 @@ A interface só informa reprodução após o evento playing, apresenta erros de 
 
 /api/sound-test fornece um MP3 mono de 500 Hz por 2 segundos, com suporte a Range/HEAD, independente de sessão, mixer, banco de dados e Web Audio. Esse teste não mede a saída física do aparelho: a confirmação de audibilidade ainda depende de quem está ouvindo.
 
-19 testes automatizados aprovados. QA no navegador confirma WAV carregado (readyState 4), relógio avançando e muted=false. Não foi possível testar o alto-falante do celular do usuário.
+21 testes automatizados aprovados. QA no navegador confirma WAV carregado (readyState 4), relógio avançando e muted=false. Não foi possível testar o alto-falante do celular do usuário.
+
+A inicialização tolera IndexedDB bloqueado, negado ou sem resposta: o estúdio continua em sessão temporária, com aviso para exportar backup, em vez de deixar todos os controles inativos.
