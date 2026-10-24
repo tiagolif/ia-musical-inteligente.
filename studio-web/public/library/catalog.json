@@ -93,6 +93,34 @@
       "duration": 1.661859410430839,
       "url": "/library/vcsl-tambourine.json",
       "processing": "Mono PCM 16-bit, 44.1 kHz; trimmed to 4 s; loudness adjusted"
+    },
+    {
+      "id": "eecc900e-36c6-5c29-92a6-7eb2035ecc3b",
+      "name": "Piano Kawai · A4",
+      "type": "synth",
+      "license": "CC0-1.0",
+      "author": "Versilian Studios / VCSL contributors",
+      "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Chordophones/Zithers/Grand%20Piano%2C%20Kawai%20-%20Legacy/Sustains/GrandPno_Main_Sus_A4_v3_rr1.wav",
+      "sourceSha256": "a145589565a2200ce6bf3c79b260f993a57cc8856fc4e1011709036440599c07",
+      "sha256": "6608d9370110247795350151298050642bd6b2b289ddfd9444701e9278844684",
+      "duration": 6.0,
+      "url": "/library/vcsl-kawai-a4.json",
+      "processing": "Mono PCM16 44.1k; highpass 35Hz; trimmed and faded",
+      "rootMidi": 69
+    },
+    {
+      "id": "08bbf440-eac6-58e0-bf02-8bcd43377d8b",
+      "name": "Conga · toque aberto",
+      "type": "hat",
+      "license": "CC0-1.0",
+      "author": "Versilian Studios / VCSL contributors",
+      "sourceUrl": "https://raw.githubusercontent.com/sgossner/VCSL/c1ea7bcc3c7309650ab0da9d15c9cd1fbc4a4c7e/Membranophones/Struck%20Membranophones/Conga/Conga_HitN_v2_rr1_Sum.wav",
+      "sourceSha256": "13d322c0e7a830cdbcbdc5a6e05566dfe3f5a073b7b82a3262d3f6fc10f96764",
+      "sha256": "bfec3426ee92cb052ef0f64ba8d78c955a2201fd720016e8d1ff46e02598376c",
+      "duration": 0.7931292517006803,
+      "url": "/library/vcsl-conga.json",
+      "processing": "Mono PCM16 44.1k; highpass 35Hz; trimmed and faded",
+      "rootMidi": null
     }
   ]
 }

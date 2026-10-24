@@ -68,3 +68,13 @@ Acordes do motor 2 usam `chordIntervals` explícito (até oito intervalos) e sã
 `lib/revise-first-groove.js` corrige terças maiores do baixo e cria viradas de um compasso sem mudar a duração total. `scripts/render-groove-revision.mjs` recebe backup de entrada e diretório de saída opcionais; preserva a fonte e inclui a versão A no backup B. Os ganhos de A/B não são normalizados separadamente. A revisão continua aguardando avaliação auditiva.
 
 O botão Abrir Primeiro Groove B carrega o exemplo e os três samples locais. A sessão anterior é guardada separadamente no mesmo armazenamento do navegador e pode ser restaurada pelo botão de retorno. Em modo de armazenamento temporário esse retorno só dura enquanto a aba estiver aberta. A comparação A/B usa a posição em compassos para alinhar as seções subdivididas.
+
+## 0.5.0 — Maré de Dentro
+
+Produção instrumental de 42 compassos, 122 BPM, Lá menor, 12 pistas, 16 seções. Piano Kawai A4 e conga VCSL CC0 adicionados ao catálogo, com fontes e hashes; piano monossample, não um instrumento multiamostrado. `scripts/prepare-production-samples.py` reproduz a conversão. `scripts/create-mare-production.mjs [output]` gera backup, MIDI e WAV usando o mesmo motor do site.
+
+`productionMix: true` habilita o mixer local: corte de graves por pista, ducking com envoltória suave disparado pelos kicks ativos, ambiente de comb filters amortecidos e delay ping-pong a 3/16. Os controles de corte, ambiente, delay e ducking ficam nas pistas e em `set_track.fx`. A sessão usa ganho global fixo `productionGain`, não normalização independente de stems.
+
+`gateBeats` limita a duração do sample, com fade final, e define note-off no MIDI. Notas do piano foram escritas para a amostra A4 e tonalidade A menor; o sampler ainda não faz mapeamento automático de várias amostras nem acompanha alterações do tom global. Efeitos são impressos no WAV; não são incorporados ao MIDI.
+
+39 testes Node cobrem regressões, mixagem aditiva de stems, ducking condicionado ao kick, gate e notas da composição. A produção continua aguardando avaliação auditiva humana; os testes não certificam qualidade artística. Nenhum servidor pago, VST ou API generativa foi contratado.
